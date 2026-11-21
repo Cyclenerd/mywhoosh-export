@@ -7,12 +7,12 @@
 [![Badge: Vibe coded with OpenCode](https://img.shields.io/badge/Vibe%20coded%20with-OpenCode-000000.svg)](https://opencode.ai)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
-A minimal, single-file Go CLI tool to automatically export and sync FIT files from MyWhoosh to your local machine.
+A minimal, single-file Go CLI tool to automatically export and sync FIT files from MyWhoosh to your local machine. Downloads the last 10 activities from your MyWhoosh account.
 
 ## Features
 
 - 🔐 Secure authentication via environment variables only
-- 📥 Automatic discovery and download of all FIT files from MyWhoosh
+- 📥 Automatic discovery and download of last 10 FIT files from MyWhoosh
 - 🔄 Smart sync - skips already downloaded files
 - 📊 Activity listing and filtering
 - ⚡ Simple sequential downloads
@@ -165,7 +165,7 @@ export MYWHOOSH_USER_ID="your_id"
 ## How It Works
 
 1. **Authentication**: Uses token from environment or command-line flags
-2. **Discovery**: Fetches activity list from MyWhoosh API (`POST /v2/rider/profile/activities`)
+2. **Discovery**: Fetches activity list from MyWhoosh API (`POST /v2/rider/profile/activities`) - last 10 activities only
 3. **Presigned URLs**: Requests presigned S3 URLs from MyWhoosh API (`POST /v2/rider/profile/download-activity-file`)
 4. **Download**: Downloads each FIT file from S3 using presigned URL (valid for 60 seconds)
 5. **Smart Sync**: Skips files that already exist locally
