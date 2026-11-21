@@ -1,0 +1,48 @@
+# Build artifacts
+mywhoosh-exporter
+*.exe
+*.dll
+*.so
+*.dylib
+*.har
+*.sh
+
+# Output directories
+fit-files/
+test-sync/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Go build cache
+go.sum
+vendor/
+dist/
+
+# Sensitive files
+.env
+*.key
+*.pem
+credentials.json
+config.json
+
+# OS files
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.log
+*.bak

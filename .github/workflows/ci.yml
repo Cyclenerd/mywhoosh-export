@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test
+    # https://github.com/actions/virtual-environments/
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v7
+
+      # https://github.com/marketplace/actions/setup-go-environment
+      - name: 🔧 Setup go
+        uses: actions/setup-go@v6
+
+      - name: 🧝‍♀️ Check formatting
+        run: |
+          if [ "$(gofmt -l . | wc -l)" -gt 0 ]; then
+            echo "Go files are not formatted:"
+            gofmt -d .
+            exit 1
+          fi
+
+      # https://github.com/marketplace/actions/run-golangci-lint
+      - name: 🌡️ Lint
+        uses: golangci/golangci-lint-action@v9
+
+      - name: 🍳 Build
+        run: make native
+
+      - name: 🌡️ Test
+        run: ./mywhoosh-exporter --help
