@@ -321,22 +321,5 @@ func main() {
 		if err := client.SyncAllActivities(activities); err != nil {
 			fmt.Printf("⚠️  Sync completed with errors: %v\n", err)
 		}
-
-		// List downloaded files
-		fmt.Println("\n📁 Local FIT files:")
-		localFiles, _ := client.ListLocalFiles()
-		if len(localFiles) == 0 {
-			fmt.Println("   (no files)")
-		} else {
-			for i, f := range localFiles {
-				fpath := filepath.Join(*outputDir, f)
-				info, _ := os.Stat(fpath)
-				size := ""
-				if info != nil {
-					size = fmt.Sprintf(" (%d bytes)", info.Size())
-				}
-				fmt.Printf("%d. %s%s\n", i+1, f, size)
-			}
-		}
 	}
 }
