@@ -16,7 +16,9 @@ jobs:
 
       # https://github.com/marketplace/actions/setup-go-environment
       - name: 🔧 Setup go
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: 'go.mod'
 
       - name: 🧝‍♀️ Check formatting
         run: |
