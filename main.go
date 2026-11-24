@@ -89,7 +89,9 @@ func (c *APIClient) GetActivities() ([]Activity, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch activities: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusNoContent {
 		body, _ := io.ReadAll(resp.Body)
@@ -138,7 +140,9 @@ func (c *APIClient) DownloadActivity(activity Activity) error {
 	if err != nil {
 		return fmt.Errorf("failed to download from S3: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
@@ -149,11 +153,13 @@ func (c *APIClient) DownloadActivity(activity Activity) error {
 	if err != nil {
 		return fmt.Errorf("failed to create output file: %w", err)
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
 	written, err := io.Copy(file, resp.Body)
 	if err != nil {
-		os.Remove(outputPath)
+		_ = os.Remove(outputPath)
 		return fmt.Errorf("failed to write file: %w", err)
 	}
 
@@ -187,7 +193,9 @@ func (c *APIClient) GetPresignedURL(activityFileID string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("failed to fetch presigned URL: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
