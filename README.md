@@ -29,42 +29,42 @@ Don't worry, it's easier than it looks!
 
 #### <img src="https://www.microsoft.com/favicon.ico" width=16 height=16/> Windows (PowerShell)
 
-1. [Download](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest) the `mywhoosh-exporter.exe` application for Windows and your CPU architecture. If you are unsure, usually `x86_64` will work.
-    * [x86_64](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest/download/mywhoosh-exporter-windows-x86_64.exe) Intel or AMD 64-Bit CPU
-    * [arm64](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest/download/mywhoosh-exporter-windows-arm64.exe) Arm-based 64-Bit CPU
-1. Rename it to: `mywhoosh-exporter.exe`
+1. [Download](https://github.com/Cyclenerd/mywhoosh-export/releases/latest) the `mywhoosh-export.exe` application for Windows and your CPU architecture. If you are unsure, usually `x86_64` will work.
+    * [x86_64](https://github.com/Cyclenerd/mywhoosh-export/releases/latest/download/mywhoosh-export-windows-x86_64.exe) Intel or AMD 64-Bit CPU
+    * [arm64](https://github.com/Cyclenerd/mywhoosh-export/releases/latest/download/mywhoosh-export-windows-arm64.exe) Arm-based 64-Bit CPU
+1. Rename it to: `mywhoosh-export.exe`
 1. Press the <kbd>Windows key</kbd> + <kbd>X</kbd>.
 1. Choose "Windows PowerShell".
 1. Type `cd` followed by the path to your your folder where you saved the application (e.g., `cd C:\Users\YourName\Documents\MyWhooshExport`) and press Enter.
-1. Type `.\mywhoosh-exporter.exe` and press Enter.
+1. Type `.\mywhoosh-export.exe` and press Enter.
 
 ### <img src="https://developer.apple.com/favicon.ico" width=16 height=16/> macOS (Terminal)
 
-1. [Download](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest) the `mywhoosh-exporter` application for macOS and your CPU architecture.
-    * [x86_64](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest/download/mywhoosh-exporter-macos-x86_64) Intel 64-bit CPU
-    * [arm64](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest/download/mywhoosh-exporter-macos-arm64) Apple silicon 64-bit CPU (M1, M2...)
-1. Rename it to: `mywhoosh-exporter`
+1. [Download](https://github.com/Cyclenerd/mywhoosh-export/releases/latest) the `mywhoosh-export` application for macOS and your CPU architecture.
+    * [x86_64](https://github.com/Cyclenerd/mywhoosh-export/releases/latest/download/mywhoosh-export-macos-x86_64) Intel 64-bit CPU
+    * [arm64](https://github.com/Cyclenerd/mywhoosh-export/releases/latest/download/mywhoosh-export-macos-arm64) Apple silicon 64-bit CPU (M1, M2...)
+1. Rename it to: `mywhoosh-export`
 1. Press <kbd>Command</kbd> + <kbd>Space</kbd>.
 1. Type "Terminal" and press Enter.
 1. Type `cd` followed by the path to your folder where you saved the application (e.g., `cd /Users/YourName/Documents/MyWhooshExport`) and press Enter.
-1. Type `chmod +x mywhoosh-exporter` and press Enter. (This makes the tool work).
-1. Type `./mywhoosh-exporter` and press Enter.
+1. Type `chmod +x mywhoosh-export` and press Enter. (This makes the tool work).
+1. Type `./mywhoosh-export` and press Enter.
 1. (Optional) Allow unsigned app on macOS
     1. Go to System Settings
     1. Click on Privacy & Security
     1. Scroll down to Security section
-    1. Look for a message about the blocked `mywhoosh-exporter` app and click "Open Anyway"
+    1. Look for a message about the blocked `mywhoosh-export` app and click "Open Anyway"
 
 ### <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16 height=16/> Linux (Terminal)
 
-1. [Download](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest) the `mywhoosh-exporter` application for Linux and your CPU architecture.
-    * [x86_64](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest/download/mywhoosh-exporter-linux-x86_64) Intel or AMD 64-Bit CPU
-    * [arm64](https://github.com/Cyclenerd/mywhoosh-exporter/releases/latest/download/mywhoosh-exporter-linux-arm64) Arm-based 64-Bit CPU (i.e. Raspberry Pi)
-1. Rename it to: `mywhoosh-exporter`
+1. [Download](https://github.com/Cyclenerd/mywhoosh-export/releases/latest) the `mywhoosh-export` application for Linux and your CPU architecture.
+    * [x86_64](https://github.com/Cyclenerd/mywhoosh-export/releases/latest/download/mywhoosh-export-linux-x86_64) Intel or AMD 64-Bit CPU
+    * [arm64](https://github.com/Cyclenerd/mywhoosh-export/releases/latest/download/mywhoosh-export-linux-arm64) Arm-based 64-Bit CPU (i.e. Raspberry Pi)
+1. Rename it to: `mywhoosh-export`
 1. Open a Terminal.
 1. Type `cd` followed by the path to your your folder where you saved the application (e.g., `cd /home/YourName/MyWhooshExport`) and press Enter.
-1. Type `chmod +x mywhoosh-exporter` and press Enter. (This makes the tool work).
-1. Type `./mywhoosh-exporter` and press Enter.
+1. Type `chmod +x mywhoosh-export` and press Enter. (This makes the tool work).
+1. Type `./mywhoosh-export` and press Enter.
 
 ### Building from Source
 
@@ -113,7 +113,7 @@ export MYWHOOSH_USER_ID="your-user-id-here"
 Then download your FIT files:
 
 ```bash
-./mywhoosh-exporter -output ~/MyWhoosh-Sync
+./mywhoosh-export -output ~/MyWhoosh-Sync
 ```
 
 Done! Your FIT files are in `~/MyWhoosh-Sync/`
@@ -121,7 +121,7 @@ Done! Your FIT files are in `~/MyWhoosh-Sync/`
 ## Usage
 
 ```text
-Usage of ./mywhoosh-exporter:
+Usage of ./mywhoosh-export:
   -list
         List activities without downloading
   -output string
@@ -139,7 +139,7 @@ Usage of ./mywhoosh-exporter:
 ```bash
 export MYWHOOSH_TOKEN="your_token"
 export MYWHOOSH_USER_ID="your_id"
-./mywhoosh-exporter -list
+./mywhoosh-export -list
 ```
 
 ### Download all FIT files
@@ -147,19 +147,19 @@ export MYWHOOSH_USER_ID="your_id"
 ```bash
 export MYWHOOSH_TOKEN="your_token"
 export MYWHOOSH_USER_ID="your_id"
-./mywhoosh-exporter -output ~/MyWhoosh-Sync
+./mywhoosh-export -output ~/MyWhoosh-Sync
 ```
 
 ### Use command-line arguments
 
 ```bash
-./mywhoosh-exporter -token "your_token" -user-id "your_id" -output ~/MyWhoosh-Sync
+./mywhoosh-export -token "your_token" -user-id "your_id" -output ~/MyWhoosh-Sync
 ```
 
 ### Sync again (skips existing files)
 
 ```bash
-./mywhoosh-exporter -output ~/MyWhoosh-Sync
+./mywhoosh-export -output ~/MyWhoosh-Sync
 ```
 
 ## How It Works

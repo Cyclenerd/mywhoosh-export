@@ -23,15 +23,15 @@ jobs:
         run: make
 
       - name: 🌡️ Test
-        run: ./mywhoosh-exporter --help
+        run: ./mywhoosh-export --help
 
       # Upload binaries
       # https://github.com/marketplace/actions/upload-a-build-artifact
       - name: 📤 Upload
         uses: actions/upload-artifact@v7
         with:
-          name: mywhoosh-exporter-artifact
-          path: mywhoosh-exporter-*
+          name: mywhoosh-export-artifact
+          path: mywhoosh-export-*
           retention-days: 1
 
   test-linux:
@@ -44,9 +44,9 @@ jobs:
       - name: 📥 Download
         uses: actions/download-artifact@v8
         with:
-          name: mywhoosh-exporter-artifact
+          name: mywhoosh-export-artifact
       - name: 🌡️ Test
-        run: chmod +x mywhoosh-exporter-linux-x86_64 && ./mywhoosh-exporter-linux-x86_64 --help
+        run: chmod +x mywhoosh-export-linux-x86_64 && ./mywhoosh-export-linux-x86_64 --help
 
   test-macos:
     name: Test macOS
@@ -56,9 +56,9 @@ jobs:
       - name: 📥 Download
         uses: actions/download-artifact@v8
         with:
-          name: mywhoosh-exporter-artifact
+          name: mywhoosh-export-artifact
       - name: 🌡️ Test
-        run: chmod +x mywhoosh-exporter-macos-arm64 && ./mywhoosh-exporter-macos-arm64 --help
+        run: chmod +x mywhoosh-export-macos-arm64 && ./mywhoosh-export-macos-arm64 --help
 
   test-windows:
     name: Test Windows
@@ -68,6 +68,6 @@ jobs:
       - name: 📥 Download
         uses: actions/download-artifact@v8
         with:
-          name: mywhoosh-exporter-artifact
+          name: mywhoosh-export-artifact
       - name: 🌡️ Test
-        run: .\mywhoosh-exporter-windows-x86_64.exe --help
+        run: .\mywhoosh-export-windows-x86_64.exe --help

@@ -25,15 +25,15 @@ jobs:
         run: make
 
       - name: 🌡️ Test
-        run: ./mywhoosh-exporter --help
+        run: ./mywhoosh-export --help
 
       # Upload binaries
       # https://github.com/marketplace/actions/upload-a-build-artifact
       - name: 📤 Upload
         uses: actions/upload-artifact@v7
         with:
-          name: mywhoosh-exporter-artifact
-          path: mywhoosh-exporter-*
+          name: mywhoosh-export-artifact
+          path: mywhoosh-export-*
           retention-days: 1
 
   test-linux:
@@ -46,9 +46,9 @@ jobs:
       - name: 📥 Download
         uses: actions/download-artifact@v8
         with:
-          name: mywhoosh-exporter-artifact
+          name: mywhoosh-export-artifact
       - name: 🌡️ Test
-        run: chmod +x mywhoosh-exporter-linux-x86_64 && ./mywhoosh-exporter-linux-x86_64 --help
+        run: chmod +x mywhoosh-export-linux-x86_64 && ./mywhoosh-export-linux-x86_64 --help
 
   test-macos:
     name: Test macOS
@@ -58,9 +58,9 @@ jobs:
       - name: 📥 Download
         uses: actions/download-artifact@v8
         with:
-          name: mywhoosh-exporter-artifact
+          name: mywhoosh-export-artifact
       - name: 🌡️ Test
-        run: chmod +x mywhoosh-exporter-macos-arm64 && ./mywhoosh-exporter-macos-arm64 --help
+        run: chmod +x mywhoosh-export-macos-arm64 && ./mywhoosh-export-macos-arm64 --help
 
   test-windows:
     name: Test Windows
@@ -70,9 +70,9 @@ jobs:
       - name: 📥 Download
         uses: actions/download-artifact@v8
         with:
-          name: mywhoosh-exporter-artifact
+          name: mywhoosh-export-artifact
       - name: 🌡️ Test
-        run: .\mywhoosh-exporter-windows-x86_64.exe --help
+        run: .\mywhoosh-export-windows-x86_64.exe --help
 
   release:
     name: Release
@@ -83,16 +83,16 @@ jobs:
       - name: 📥 Download gcosts
         uses: actions/download-artifact@v8
         with:
-          name: mywhoosh-exporter-artifact
+          name: mywhoosh-export-artifact
       # Release, upload files
       # https://github.com/softprops/action-gh-release
       - name: ✨ Release
         uses: softprops/action-gh-release@v3.0.1
         with:
           files: |
-            mywhoosh-exporter-linux-x86_64
-            mywhoosh-exporter-linux-arm64
-            mywhoosh-exporter-macos-x86_64
-            mywhoosh-exporter-macos-arm64
-            mywhoosh-exporter-windows-x86_64.exe
-            mywhoosh-exporter-windows-arm64.exe
+            mywhoosh-export-linux-x86_64
+            mywhoosh-export-linux-arm64
+            mywhoosh-export-macos-x86_64
+            mywhoosh-export-macos-arm64
+            mywhoosh-export-windows-x86_64.exe
+            mywhoosh-export-windows-arm64.exe

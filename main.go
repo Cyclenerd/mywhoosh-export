@@ -295,7 +295,7 @@ func main() {
 		fmt.Println("   export MYWHOOSH_USER_ID=\"your-user-id\"")
 		fmt.Println("")
 		fmt.Println("Or use command-line flags:")
-		fmt.Println("   ./mywhoosh-exporter -token <token> -user-id <id> -output <dir>")
+		fmt.Println("   ./mywhoosh-export -token <token> -user-id <id> -output <dir>")
 		os.Exit(1)
 	}
 
